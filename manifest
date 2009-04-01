@@ -1,0 +1,87 @@
+#FLAMEmixturemodel
+#Wed Jan 21 15:46:31 EST 2009
+JVMLevel=
+author=
+commandLine=<R-2.7.2> <libdir>mixturemodel.emskew.R parseCmdLine <libdir> <preprocessed.data> <g.min> <g.max> <density> <channels.to.cluster> <seed> <estimation.increment> <output.prefix>
+cpuType=any
+description=
+fileFormat=zip
+language=R
+name=FLAMEMixtureModel
+os=any
+p1_MODE=IN
+p1_TYPE=FILE
+p1_default_value=
+p1_description= A .zip file containing preprocessed flow sample files in tab-delimited .txt format.
+p1_fileFormat=zip
+p1_name=preprocessed.data
+p1_optional=
+p1_prefix_when_specified=
+p1_type=java.io.File
+p1_value=
+
+p2_default_value=3
+p2_description=An integer; minimal number of clusters to be fit for each sample.
+p2_name=g.min
+p2_optional=
+p2_prefix_when_specified=
+p2_type=java.lang.Integer
+p2_value=
+
+p3_default_value=10
+p3_description=An integer; maximal number of clusters to be fit for each sample. g max should be greater or equal to g min.
+p3_name=g.max
+p3_optional=
+p3_prefix_when_specified=
+p3_type=java.lang.Integer
+p3_value=
+
+p4_default_value=skewt
+p4_description=Density distribution to be used for clustering
+p4_name=density
+p4_optional=
+p4_prefix_when_specified=
+p4_type=java.lang.String
+p4_value=normal;t;skewn=skew normal;skewt=skew t
+
+p5_default_value=
+p5_description=A comma-separated list of channel numbers; these denote which antibodies in the (preprocessed) data sample to be used for clustering.
+p5_name=channels.to.cluster
+p5_optional=
+p5_prefix_when_specified=
+p5_type=java.lang.String
+p5_value=
+
+p6_default_value=0.5
+p6_description=Only used for skew distributions. This is the increment for estimation of modes. The value must be greater than 0 and less than 1.
+p6_name=estimation.increment
+p6_optional=
+p6_prefix_when_specified=
+p6_type=java.lang.Float
+p6_value=
+
+p7_default_value=123456
+p7_description=An integer; the seed fixes random computational processes during computation. This does not need to be changed under most circumstances.
+p7_name=seed
+p7_optional=
+p7_prefix_when_specified=
+p7_type=java.lang.Integer
+p7_value=
+
+p8_default_value=<preprocessed.data_basename>
+p8_description=A prefix for output files.
+p8_name=output.prefix
+p8_optional=
+p8_prefix_when_specified=
+p8_type=java.lang.String
+p8_value=
+
+pipelineModel=
+privacy=private
+quality=development
+requiredPatchLSIDs=
+requiredPatchURLs=
+serializedModel=
+taskType=FLAME
+userid=xinlihu
+version=Updated documentation
