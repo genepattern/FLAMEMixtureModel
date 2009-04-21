@@ -15,11 +15,11 @@ cleanup <- function()
     files <- list.files(all.files=TRUE)
     for (i in 1:length(files))
     {
-        if(regexpr(paste(".zip","$",sep=""), tolower(files[[i]]))[[1]] == -1
-            && tolower(files[[i]]) != "stderr.txt")
+         if(regexpr(paste(".zip","$",sep=""), tolower(files[[i]]))[[1]] == -1
+            && tolower(files[[i]]) != "stderr.txt" && tolower(files[[i]]) != "cmd.out"
+            && tolower(files[[i]]) != "stdout.txt")
         {
-            if(tolower(files[[i]]) != "stdout.txt")
-                file.remove(files[[i]])
+            file.remove(files[[i]])
         }
     }
 }
