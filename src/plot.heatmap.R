@@ -38,8 +38,19 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	    library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
 	    CairoPNG(filename = paste(fname, "heatmap.png",sep='.'),height = 960*1.5, width = 960*1.5)	    
 	}
-	heatmap.2(as.matrix(heatmap), Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=T,
-	keysize = 1,symkey=F,density.info = "none",cellnote=round(heatmap,1),notecex=1,notecol="black",trace="none",rowsep=nrow(heatmap)-3,sepcolor="white", main = paste(fname,"cluster intensities",sep=''))
+
+	if(.Platform$OS.type == "unix")
+	{
+	    heatmap.colors <- redblue(75)
+	}
+	else
+	{
+	    heatmap.colors <- bluered(75)
+	}
+
+	heatmap.2(as.matrix(heatmap), Colv=F, Rowv=F, col = heatmap.colors, scale = "column", dendrogram="none", key=T,
+	        keysize = F, symkey=F, density.info = "none", cellnote=round(heatmap,1), notecex=1, notecol="black", trace="none",
+	        rowsep=nrow(heatmap)-3, sepcolor="white", main = paste(fname, "cluster intensities", sep=''))
 	dev.off()
 	}
 }
