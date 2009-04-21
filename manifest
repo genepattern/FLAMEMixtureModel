@@ -9,6 +9,7 @@ fileFormat=zip
 language=R
 name=FLAMEMixtureModel
 os=any
+
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
@@ -84,4 +85,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=FLAME
 userid=xinlihu
-version=Updated documentation
+version=renamed module
