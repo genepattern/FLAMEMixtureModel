@@ -48,8 +48,8 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	    heatmap.colors <- bluered(75)
 	}
 
-	heatmap.2(as.matrix(heatmap), Colv=F, Rowv=F, col = heatmap.colors, scale = "column", dendrogram="none", key=T,
-	        keysize = F, symkey=F, density.info = "none", cellnote=round(heatmap,1), notecex=1, notecol="black", trace="none",
+	heatmap.2(as.matrix(heatmap), Colv=F, Rowv=F, col = heatmap.colors, scale = "column", dendrogram="none",
+	        key = F, symkey=F, density.info = "none", cellnote=round(heatmap,1), notecex=1, notecol="black", trace="none",
 	        rowsep=nrow(heatmap)-3, sepcolor="white", main = paste(fname, "cluster intensities", sep=''))
 	dev.off()
 	}
