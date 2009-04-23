@@ -31,7 +31,6 @@ create.pairplot.legend <- function(num.colors)
     ###############
     ## COLOR KEY ##
     ###############
-    library(Cairo)
 
     CairoPNG("pairplots_legend.png", width=640, height=500)
 
