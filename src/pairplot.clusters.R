@@ -1,11 +1,11 @@
-pairplotClusters2D <- function(concatfiles, dim){
+pairplotClusters2D <- function(concatfiles, dim, max.clusters){
+
+colors <- rainbow(max.clusters)
 
 for (i in 1:length(concatfiles)) {
 	print(i)
 	filename <- strsplit(concatfiles[i], "\\.membership.txt")
 	datafile <- data.frame(read.table(concatfiles[i],header=T,sep="\t"))
-	maxclus <- max(datafile$cluster)
-	colors <- rainbow(maxclus)
 
     if (.Platform$OS.type == "windows")
     {
@@ -20,4 +20,31 @@ for (i in 1:length(concatfiles)) {
 	labels = names(datafile)[1:dim], col = colors[datafile$cluster])
 	dev.off()
 }
+
+create.pairplot.legend(max.clusters)
+
+}
+
+
+create.pairplot.legend <- function(num.colors)
+{
+    ###############
+    ## COLOR KEY ##
+    ###############
+    library(Cairo)
+
+    CairoPNG("pairplots_legend.png", width=640, height=500)
+
+    colors <- rainbow(num.colors)
+    vec <- c(1:num.colors)
+    x = vec%%25
+    x <- replace(x, which(x==0), 25)
+
+    n.row = trunc((num.colors+25)/25)
+    y = rep(n.row:1, each = 25)[1:num.colors]
+
+    plot(x, y, asp=1, col=colors[1:num.colors], pch=15, cex=3.9, xlab='',ylab='', main=paste("Cluster Color Legend"), axes=F)
+    text(cex=0.98, x[seq(1, num.colors, by=3)], y[seq(1, num.colors, by=3)], label=seq(1, num.colors, by=3))
+
+    dev.off()
 }
