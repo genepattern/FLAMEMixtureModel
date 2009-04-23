@@ -93,7 +93,9 @@ unlink(temp.dir, recursive = TRUE)
 unzip.file(preprocessedData, wkdir)
 preprocessedData <- temp.files
 
-g.range <- as.numeric(g.min):as.numeric(g.max) 
+g.min <- as.numeric(g.min)
+g.max <- as.numeric(g.max)
+g.range <- g.min:g.max
 channels.to.cluster <- as.numeric(strsplit(channels.to.cluster,',')[[1]]) 
 seed <- as.integer(seed)
 
@@ -112,7 +114,7 @@ step = step)
 ### PLOT 2D FITTED CLUSTERS ###
 ###############################
 concatfiles <- dir("./", pattern = "membership.txt")
-pairplotClusters2D(concatfiles, dim = num.channels.to.cluster)
+pairplotClusters2D(concatfiles, dim = num.channels.to.cluster, g.max)
 
 ##########################
 ### CREATE PARAMETERES ###
@@ -140,6 +142,7 @@ dput(specs, "mixtureModelSpecs.ret")
 #file.remove("emmix.dll")
 #file.remove("emskew.dll")
 #file.remove("emmix.so")
+
 
 #zip up all files
 zip.file(libdir = libdir,files = " *.locations.txt",outfile = paste(output.prefix,"MixtureModel.zip",sep='.'))
