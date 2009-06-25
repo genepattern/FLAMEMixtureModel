@@ -3,7 +3,7 @@
 # On 5 Sept, 2007.
 
 
-callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=123456, step = 0.1) {
+callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=123456, mode.estimation = "F",step = 0.5) {
 	datafile<-read.table(datafiles[id],header = T, sep = "\t")
 	dat<- subset(datafile, select = dim2cluster)
 	dat <- as.matrix(dat)
@@ -29,8 +29,11 @@ callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=12345
 		if (obj$error == 0) {
 		
 		if (ndist == 3 | ndist == 4) {
-		obb <-  EmSkewMOD(ndist,obj$mu,obj$sigma,step=step,obj$delta,obj$dof)
-		obj$mod <- obb$modpts
+			if (mode.estimation == "T") {	
+				obb <-  EmSkewMOD(ndist,obj$mu,obj$sigma,step=step,obj$delta,obj$dof)
+				obj$mod <- obb$modpts
+			}
+			if (mode.estimation == "F") { obj$mod = obj$mu }
 		}
 		if (ndist == 1 | ndist == 2) {
 		obj$mod = obj$mu

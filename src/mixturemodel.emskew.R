@@ -37,7 +37,8 @@ g.max=20,
 density, #{normal, t, skewn, skewt}
 channels.to.cluster,
 seed =123456, #random seed
-step = 0.1,
+mode.estimation = "F",
+step = 0.5,
 output.prefix #<studyname_dataname>
 ){
 
@@ -107,6 +108,7 @@ runMixtureModel(dist=dist,
 g=g.range,
 dim2cluster=channels.to.cluster,
 seed = seed,
+mode.estimation = mode.estimation,
 step = step)
 
 
