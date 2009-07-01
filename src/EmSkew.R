@@ -52,7 +52,7 @@ error <- obj$error
 
 
 msg<-switch(error,
-'1' = paste("did not converge within ", itmax, " iterations, try to increase itmax or epsilon"),
+'1' = paste("did not converge within", itmax, "iterations, try to increase itmax or epsilon"),
 '2' = paste("failed to find a initial values! try more initial partitions"),
 '3' = paste("estep fails (singular covariance matrix),try more initial partitions"))
 
@@ -542,7 +542,7 @@ den = double(n*g),error = integer(1))[10:11]
 den<- NULL
 
 if(obj$error) 
- warning("error in calculate the density functin!")
+ warning("error in calculate the density function!")
 else
 den <- matrix(obj$den,ncol=g)
 
