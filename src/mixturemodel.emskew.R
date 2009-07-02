@@ -158,14 +158,14 @@ install.required.packages <- function(libdir)
 {
     if(!is.package.installed(libdir, "gtools"))
 	{
-		install.package(libdir,,, "gtools_2.5.0.tar.gz")
+		install.package(libdir, "gtools_2.5.0.zip", "gtools_2.5.0.tgz", "gtools_2.5.0.tar.gz")
 	}
     if(!is.package.installed(libdir, "gdata"))
 	{
-		install.package(libdir,,, "gdata_2.4.2.tar.gz")
-	}	
+		install.package(libdir, "gdata_2.4.2.zip", "gdata_2.4.2.tgz", "gdata_2.4.2.tar.gz")
+	}
     if(!is.package.installed(libdir, "gplots"))
 	{
-		install.package(libdir,,, "gplots_2.6.0.tar.gz")
+		install.package(libdir, "gplots_2.6.0.zip", "gplots_2.6.0.tgz", "gplots_2.6.0.tar.gz")
 	}
 }
