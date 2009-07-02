@@ -53,7 +53,7 @@ p5_prefix_when_specified=
 p5_type=java.lang.String
 p5_value=
 
-p6_default_value=T
+p6_default_value=F
 p6_description=Used only for skew distributions. Whether to estimate the mode for each cluster. Bypassing mode estimation speeds up the analysis.
 p6_name=estimate.mode
 p6_optional=
@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=FLAME
 userid=xinlihu
-version=
+version=Changed default value of estimate mode parameter and include packages for other platforms
