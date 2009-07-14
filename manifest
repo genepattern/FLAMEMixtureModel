@@ -54,15 +54,15 @@ p5_type=java.lang.String
 p5_value=
 
 p6_default_value=F
-p6_description=Used only for skew distributions. Whether to estimate the mode for each cluster. Bypassing mode estimation speeds up the analysis.
+p6_description=Bypassing mode estimation speeds up the analysis. Must be the same value used in FLAMEMixtureModel.
 p6_name=estimate.mode
 p6_optional=
 p6_prefix_when_specified=
 p6_type=java.lang.String
 p6_value=T=yes;F=no
 
-p7_default_value=0.5
-p7_description=Used only for skew distributions and when estimate mode is set to yes. Step is used to calculate the number of iterations of the Expectation-Maximization(EM) algorithm to perform when computing the Maximum Likelihood(ML) estimate. The value must be greater than 0 and less than 1. The smaller the increment, the more accurate the estimation, but the slower the estimation step.
+p7_default_value=1
+p7_description=Used only for skew distributions and when estimate mode is set to yes. The smaller the increment, the more accurate the estimation, but the slower the estimation step. Must be the same value used in FLAMEMixtureModel.
 p7_name=estimation.increment
 p7_optional=
 p7_prefix_when_specified=
@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=FLAME
 userid=xinlihu
-version=Changed default value of estimate mode parameter and include packages for other platforms
+version=Doc updates
