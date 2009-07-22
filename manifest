@@ -46,7 +46,7 @@ p4_type=java.lang.String
 p4_value=normal;t;skewn=skew normal;skewt=skew t
 
 p5_default_value=
-p5_description=A comma-separated list of channel numbers; these denote which antibodies in the (preprocessed) data sample to be used for clustering.
+p5_description=A comma-separated list of either channel numbers (e.g., 1, 2, 3, 7) or channel names (e.g., CD4, CD45RA, ZAP70); these denote which antibodies in the (preprocessed) data sample to be used for clustering.
 p5_name=channels.to.cluster
 p5_optional=
 p5_prefix_when_specified=
@@ -54,7 +54,7 @@ p5_type=java.lang.String
 p5_value=
 
 p6_default_value=F
-p6_description=Bypassing mode estimation speeds up the analysis. Must be the same value used in FLAMEMixtureModel.
+p6_description=Used only for skew distributions. Whether to estimate the mode for each cluster.  Must be the same value used in FLAMEMixtureModel.
 p6_name=estimate.mode
 p6_optional=
 p6_prefix_when_specified=
@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=FLAME
 userid=xinlihu
-version=Doc updates
+version=Modified channels to cluster parameter to be either channel names or channel numbers
