@@ -6,12 +6,37 @@
 callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=123456, mode.estimation = "F",step = 0.5) {
 	datafile<-read.table(datafiles[id],header = T, sep = "\t")
 
-	max.dim2cluster <- max(dim2cluster)
-
-    if(max.dim2cluster > ncol(datafile))
+    if(length(dim2cluster) > ncol(datafile))
     {
-        stop(paste("The number of channels in dataset is", ncol(datafile), "but the maximum channel specified to cluster is", max.dim2cluster))
+        stop(paste("The number of channels to cluster", length(dim2cluster), "is greater than number of channels in dataset",  ncol(datafile)))
     }
+
+    numeric.result <- as.numeric(dim2cluster)
+
+    if(length(numeric.result[is.na(numeric.result)]) != 0)
+    {   #validate channel names
+
+        cat("Found non-numeric values in channels to cluster. Processing channels to cluster as channel names.")
+        mresult <- match(dim2cluster, colnames(datafile))
+        if(length(dim2cluster[is.na(mresult)]) != 0)
+        {
+            stop("Could not find the following channels in the dataset:\n ", paste(" ", dim2cluster[is.na(mresult)]))
+        }
+    }
+	else
+	{   # validate channel numbers
+        cat("Found numeric values in channels to cluster. Processing channels to cluster as channel numbers.")
+
+	    max.dim2cluster <- max(dim2cluster)
+
+        if(max.dim2cluster > ncol(datafile))
+        {
+            stop(paste("The number of channels in dataset is", ncol(datafile), "but the maximum channel specified to cluster is", max.dim2cluster))
+        }
+
+        dim2cluster <- numeric.result
+    }
+
 
 	dat<- subset(datafile, select = dim2cluster)
 	dat <- as.matrix(dat)

@@ -97,7 +97,15 @@ preprocessedData <- temp.files
 g.min <- as.numeric(g.min)
 g.max <- as.numeric(g.max)
 g.range <- g.min:g.max
-channels.to.cluster <- as.numeric(strsplit(channels.to.cluster,',')[[1]]) 
+
+# remove trailing and leading spaces
+channels.to.cluster <- gsub("^[ \t]+|[ \t]+$", "", channels.to.cluster)
+                            
+# remove spaces directly before or after a comma
+channels.to.cluster <- gsub(" *, *", ",", channels.to.cluster)
+
+channels.to.cluster <- strsplit(channels.to.cluster,',')[[1]]
+
 seed <- as.integer(seed)
 
 num.channels.to.cluster = length(channels.to.cluster)
