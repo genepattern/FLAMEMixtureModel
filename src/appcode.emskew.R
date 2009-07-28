@@ -16,7 +16,7 @@ callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=12345
     if(length(numeric.result[is.na(numeric.result)]) != 0)
     {   #validate channel names
 
-        cat("Found non-numeric values in channels to cluster. Processing channels to cluster as channel names.")
+        cat("Found non-numeric values in channels to cluster. Processing channels to cluster as channel names.\n")
         mresult <- match(dim2cluster, colnames(datafile))
         if(length(dim2cluster[is.na(mresult)]) != 0)
         {
@@ -52,8 +52,9 @@ callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=12345
 	dyn.load(exe)
 		
 	for(h in g) {
-		print(paste("\nstart fitting", h, sep = ' '))
-		print("\n")
+	    cat('\n')
+		print(paste("start fitting", h, sep = ' '))
+		print('\n')
 		ndist<-switch(dist,mvn=1,mvt=2,msn=3,mst=4)
 		ptm <- proc.time()
 		obj<-EmSkew(dat,h,ndist,ncov,seed=seed)
@@ -82,7 +83,7 @@ callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=12345
 		    p<-ncol(dat)
 		    #obj$Maha<-mahalonobis(p,h,obj$mu,obj$sigma)
 
-		    # 1. write the result to a ret file, use next fucntion to read out
+		    # 1. write the result to a ret file, use next function to read out
 		    print("write .ret")
 		    dput(obj,paste(name,dist,h,"ret",sep='.'))
 
