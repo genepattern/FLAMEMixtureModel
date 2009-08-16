@@ -35,8 +35,8 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	}
 	else
 	{
-	    library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
-	    CairoPNG(filename = paste(fname, "heatmap.png",sep='.'),height = 960*1.5, width = 960*1.5)	    
+	    library(Cairo)
+	    CairoPNG(filename = paste(fname, "heatmap.png",sep='.'),height = 960*1.5, width = 960*1.5)
 	}
 
 	if(.Platform$OS.type == "unix")

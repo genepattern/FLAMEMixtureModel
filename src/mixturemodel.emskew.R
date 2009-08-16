@@ -110,6 +110,11 @@ seed <- as.integer(seed)
 
 num.channels.to.cluster = length(channels.to.cluster)
 
+if(Sys.getenv("R_LIBS") != '')
+{
+    setLibPath(c(Sys.getenv("R_LIBS"), .libPaths()))
+}
+
 #run mixture model
 dist = switch(density, "normal" = "mvn", "t" = "mvt", "skewn" = "msn","skewt" = "mst")
 runMixtureModel(dist=dist,
