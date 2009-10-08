@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=Flow Cytometry
 userid=xinlihu
-version=Modified channels to cluster parameter to be either channel names or channel numbers
+version=Fixed bug in loading Cairo library
