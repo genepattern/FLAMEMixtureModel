@@ -37,13 +37,10 @@ create.pairplot.legend <- function(num.colors)
     {
         png(filename = "pairplots_legend.png", width = 640, height = 500) 
 	}
-	else if(Sys.getenv("R_LIBS") != '')
-	{
-	    CairoPNG("pairplots_legend.png", width=640, height=500)
-	}
 	else
 	{
-        pdf(filename = "pairplots_legend.png", width = 4, height = 3)
+	    library(Cairo)	
+	    CairoPNG("pairplots_legend.png", width = 640, height = 500)
 	}
 
     colors <- rainbow(num.colors)
