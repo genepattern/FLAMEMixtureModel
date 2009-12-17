@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=Flow Cytometry
 userid=xinlihu
-version=Fixed bug in loading Cairo library
+version=Fixed bug in generating pairplots legend
