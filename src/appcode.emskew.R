@@ -27,8 +27,9 @@ callme<-function(datafiles,id,g=c(3:5),dim2cluster,dist="mvt",ncov=3, seed=12345
 	{   # validate channel numbers
         cat("Found numeric values in channels to cluster. Processing channels to cluster as channel numbers.")
 
+        dim2cluster <- as.numeric(dim2cluster)
 	    max.dim2cluster <- max(dim2cluster)
-
+        
         if(max.dim2cluster > ncol(datafile))
         {
             stop(paste("The number of channels in dataset is", ncol(datafile), "but the maximum channel specified to cluster is", max.dim2cluster))
