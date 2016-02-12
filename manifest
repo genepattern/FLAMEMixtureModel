@@ -93,4 +93,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=Flow Cytometry
 userid=xinlihu
-version=Fixed check for valid channels to cluster range
+version=Update cleanup function to work with PbsJobRunner
