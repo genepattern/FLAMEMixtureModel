@@ -1,0 +1,14 @@
+name: FLAMEMixtureModel example
+module: FLAMEMixtureModel
+params:
+    preprocessed.data: "ftp://ftp.broadinstitute.org/pub/genepattern/example_files/FLAME/SMALLphospho.PreprocessedData.zip"
+    g.min: "4"
+    g.max: "6"
+    density: "t"
+    channels.to.cluster: "1,2,3,4"
+    estimate.mode: "T"
+    estimation.increment: "0.1"
+    seed: "123456"
+    output.prefix: "<preprocessed.data_basename>"
+assertions:
+        jobStatus: success
